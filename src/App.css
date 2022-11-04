@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  margin:0px;
+  padding: 0px;
+  
+}
+
+
+p {
+  margin: 0px;
+}
+
+.Head {
+
+  margin:0px;
+  height: 100vh;
+  width: 100%;
+  background-color:#0e0e10;  
+  color:white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.Second {
+  color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:0px;
+  height: 100vh;
+  width: 100%;
+  background-color:rgb(23, 21, 21);
+}
+
+.About {
+  margin:0px;
+  height: 100vh;
+  width: 100%;
+  background-color:rgb(43, 43, 50);
+  color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Framer Motion Head Words */
+.title--text {
+  display: flex;
+  overflow: hidden;
+  padding:0px;
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+}
+
+.response--text {
+  display: flex;
+  overflow: hidden;
+  padding:0px;
+  font-size: 1.2rem;
+}
+
+.box1 {
+  width: 50px;
+  height:50px;
+  background-color: red;
+  position: absolute;
+  top:150vh;
+  left: 20vw;
+  opacity: 0.3;
+}
+
+.box2 {
+  width: 50px;
+  height:50px;
+  background-color: red;
+  position: absolute;
+  top:150vh;
+  left: 80vw;
+  opacity: 0.3;
+}
+
+.parallax--text {
+  position:absolute;
+  top: 100%;
+  font-size: 1.2rem;
+  opacity: 0.2;
+}
