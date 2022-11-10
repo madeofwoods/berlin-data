@@ -3,6 +3,7 @@ import './App.css'
 import Head from './components/Head'
 import Second from './components/Second'
 import About from './components/About'
+import Svglines from './components/Svglines'
 import { useEffect } from 'react'
 
 function App() {
@@ -16,11 +17,20 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [])
 
+
+
+
+
+
+
+
   return (
     <div className="App">
       <Head />
       <Second offsetY={offsetY} />
       <About />
+      <Svglines />
+      <div className="section"></div>
     </div>
   )
 }

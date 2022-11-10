@@ -1,8 +1,70 @@
+import { useState, useEffect, useRef } from "react"
+
+
+
+
+
 export default function Svglines() {
+
+    const pathRef2 = useRef()
+    const [scrollPercentage, setScrollPercentage] = useState(0)
+    const [scrollTop, setScrollTop] = useState(document.documentElement.scrollTop)
+
+
+    useEffect( () => {
+        window.addEventListener("scroll", (e) => setScrollTop(document.documentElement.scrollTop))
+      })
+    
+    useEffect(() => {
+        setScrollTop(document.documentElement.scrollTop)
+
+        // setScrollPercentage(scrollTop / ((document.documentElement.scrollHeight - document.documentElement.clientHeight )))
+
+        setScrollPercentage(scrollTop / ((document.documentElement.scrollHeight - document.documentElement.clientHeight )))
+
+        console.log(scrollPercentage)
+    }, [scrollTop])
+
+    useEffect(() => {
+        let path = pathRef2.current
+
+        let pathLength = (pathRef2.current.getTotalLength())
+
+        path.style.strokeDasharray = pathLength + ' ' + pathLength;
+        path.style.strokeDashoffset = pathLength;
+
+        let drawLength = pathLength * (4.8*scrollPercentage -0.8);
+        path.style.strokeDashoffset = pathLength - drawLength;
+
+  
+     }, [scrollPercentage])
+
     return (
         <div className="svg--page">
 
-            
+            {/* <svg className="svg--test--line" width="52" height="1040" viewBox="0 0 52 1040" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path ref={pathRef2} d="M18 0V538.5C5.49998 538.333 -12 545.5 18 575.5C48 605.5 52.1667 566.333 50.5 543C44.4301 538.237 29.4322 531.568 18 543C6.56778 554.432 13.2366 587.43 18 602.5V1040" stroke="url(#paint0_radial_1_3)"/>
+            <defs>
+            <radialGradient id="paint0_radial_1_3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(26.1245 520) rotate(90) scale(520 24.689)">
+            <stop offset="0.609375" stopColor="#14C2E9"/>
+            <stop offset="1" stopColor="white"/>
+            </radialGradient>
+            </defs>
+            </svg> */}
+
+            <svg className="svg--test--line" width="226" height="1087" viewBox="0 0 226 1087" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_b_3_2)">
+                <path ref={pathRef2} d="M2 0V587L224 845V1089" stroke="#6F5631" stroke-width="4"/>
+                </g>
+                <defs>
+                <filter id="filter0_b_3_2" x="-20" y="-20" width="266" height="1129" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feGaussianBlur in="BackgroundImageFix" stdDeviation="10"/>
+                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_3_2"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_3_2" result="shape"/>
+                </filter>
+                </defs>
+            </svg>
         </div>
     )
 }
